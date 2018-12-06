@@ -1,0 +1,3 @@
+https://siteofachyu.wordpress.com/2016/04/29/how-to-show-byte-as-a-image-in-angularjs/
+
+https://stackoverflow.com/questions/14979791/angularjs-show-byte-array-content-as-image

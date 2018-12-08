@@ -1,0 +1,33 @@
+<div class="login-page panel-body" align="right">
+    <div class="singInContainer" align="right">
+        <div align="center" style="margin-bottom: 50px;">
+            <img src="./assets/images/logo.png" width="200px" height="100px">
+        </div>
+        <form #LogInForm="ngForm" (ngSubmit)="onClick()">
+            <div class="form-group" align="center">
+              <div id="message" class="errorMessageDiv" [hidden]="!errorAction" align="center" style="margin-bottom:8px;">{{errorMessage}}</div>
+            </div>
+            <div class="form-group" align="center">
+                <div id="message" class="successMessageDiv" [hidden]="!successAction" align="center" style="margin-bottom:8px;">{{addMessage}}</div>
+            </div>
+            <div class="form-group" align="center">
+                <input type="email" class="inputField" name="email" [(ngModel)]="emailID" id="email" #emailValid="ngModel" pattern="^[A-z0-9._%+-]+@[A-z0-9.-]+\.[A-z]{2,6}$" [ngModelOptions]="{updateOn: 'change'}" autocomplete="off" placeholder="Email Address" required>
+                <div id="message" class="errorMessageDiv" [hidden]="emailValid.valid || emailValid.pristine">Invalid Email Address</div>
+            </div>
+            <div class="form-group" align="center">
+                <input type="password" class="inputField" name="password" [(ngModel)]="password" id="password" #passwordValid="ngModel" pattern="[A-z][A-z0-9-_.]{7,}" [ngModelOptions]="{updateOn: 'change'}" autocomplete="off" placeholder="Password" required>
+                <div id="message" class="errorMessageDiv" [hidden]="passwordValid.valid || passwordValid.pristine">Invalid Password</div>
+            </div>
+            <div class="form-group" align="center">
+                <button class="btn btn-success" style="width:225px;" type="submit" value="Login" id="submitButton" [disabled]="!LogInForm.form.valid">Log In!</button>
+            </div>
+            <div class="form-group" align="center">
+                <a class="btn btn-link" [routerLink]="['../forgotPassword']">Forgot Password?</a>
+            </div>
+        </form>
+        <div class="form-group" align="center">
+            <a class="btn btn-link" [routerLink]="['../signup']" style="font-size: 20px;">New User? Register Here.</a>
+        </div>
+
+    </div>
+</div>

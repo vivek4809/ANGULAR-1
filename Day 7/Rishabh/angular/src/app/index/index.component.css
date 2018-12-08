@@ -1,0 +1,23 @@
+.heading {
+  color: white;
+}
+
+.main {
+  overflow:auto;
+}
+
+.container {
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  text-align: center;
+}
+
+.embedder {
+  position: absolute;
+  top: 100px;
+  right: 50px;
+  width: fit-content;
+  text-align: center;
+  padding: 50px;
+}

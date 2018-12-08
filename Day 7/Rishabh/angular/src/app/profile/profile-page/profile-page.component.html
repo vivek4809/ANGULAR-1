@@ -1,0 +1,78 @@
+<div class="row"><app-header></app-header></div>
+
+<div class="row"><app-wall-pic></app-wall-pic></div>
+
+<div class="row" style="height: 140px">
+  <div class="col-md-5"></div>
+  <div class="col-md-2 profilepic" align="center">
+    <app-profile-pic></app-profile-pic>
+    <div class="row"><h4>Rishabh Tandon</h4></div>
+  </div>
+  <div class="col-md-5"></div>
+</div><br>
+
+<div class="row" align="center">
+  {{bio}}
+</div>
+<br>
+<br>
+<div class="row" style="background-color:#e2dddd" >
+  <br>
+  <div class="col-sm-1 pf" align="center">
+    <app-profile-pic></app-profile-pic>
+  </div>
+  <form (ngSubmit)="createPost()">
+    <div class="col-sm-10" align="center">
+      <textarea style="height: 70px" [(ngModel)]="postText" name="post" placeholder="What's on your mind!" class="textarea"></textarea> 
+    </div>
+    <div class="col-sm-1" align="left">
+      <button type="submit" class="btn btn-default">Post</button>
+    </div>
+  </form>
+</div>
+  <div class="row" style="background-color:#e2dddd">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-2" align="center" style="margin-bottom: 10px"><button  class="btn btn-default"><i class="fa fa-image"></i>  Photo</button></div>
+    <div class="col-sm-2" align="center"><button  class="btn btn-default"><i class="fa fa-map-marker"></i>  Check In</button></div>
+    <div class="col-sm-2" align="center"><button  class="btn btn-default"><i class="fa fa-smile-o"></i>  Feelings</button></div>
+    <div class="col-sm-2" align="center"><button  class="btn btn-default"><i class="fa fa-tags"></i>  Tag Friends</button></div>
+    <div class="col-sm-2"></div>
+  </div>
+  <br>
+<div class="row" style="background-color:#aaa; height: 30px">
+  <div class="col-sm-4" align="center" style="margin-top: 5px"><a [routerLink]="['./about']"><font color="black"><b>About</b></font></a></div>
+  <div class="col-sm-4" align="center" style="margin-top: 5px"><a><font color="black"><b>Photos</b></font></a></div>
+  <div class="col-sm-4" align="center" style="margin-top: 5px"><a><font color="black"><b>Friends</b></font></a></div>
+</div>
+<br><br>
+
+<div class="row" *ngIf='posts && posts.length'>
+  <div class="row" *ngFor='let post of posts'>
+    <div class="row">
+        
+        <div class="col-md-2 pf" align="center">
+            <app-profile-pic></app-profile-pic>
+        </div>
+        <div class="col-md-8" >
+        <div class="row">
+            <b>{{_profileName}} </b> shared a <b>post</b>.
+        </div>
+        <div class="row">
+            {{post.postDate}}
+            {{post.postTime}}
+        </div>
+      </div>
+      <div class="col-md-1"></div>
+    </div>
+    <div class="row status">
+        <div class="col-sm-1 pf"></div>
+        <div class="col-sm-11" align="left">{{post.postText}}</div>
+    </div>
+    <div class="row button" style="background-color:#e2dddd">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-4" align="center" style="margin-bottom: 10px"><button  class="btn btn-default"><i class="fa fa-thumbs-o-up"></i>  Like</button></div>
+        <div class="col-sm-4" align="center"><button  class="btn btn-default"><i class="fa fa-comments-o"></i> Comment</button></div>
+        <div class="col-sm-2"></div>
+      </div>
+  </div>
+</div>

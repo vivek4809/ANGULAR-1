@@ -1,0 +1,29 @@
+<nav class="sidebar">
+  <div class="circle">
+      <app-profile-pic></app-profile-pic>
+  </div>
+  <h3>{{_profileName}}</h3>
+  <div class="list-group sidebar1">
+      <a [routerLink]="['./stories']" class="list-group-item">
+          <i class="fa fa-fw fa-dashboard"></i>&nbsp;
+          <span>{{ 'Stories'}}</span>
+      </a>
+      <a  [routerLink]="['/profile']" class="list-group-item">
+          <i class="fa fa-user"></i>&nbsp;
+          <span>{{ 'Profile'}}</span>
+      </a>
+      <a  class="list-group-item">
+              <i class="fa fa-envelope"></i>&nbsp;
+              <span>{{ 'Messages'}}</span>
+      </a>
+      <a  class="list-group-item">
+              <i class="fa fa-image"></i>&nbsp;
+              <span>{{ 'Photos'}}</span>
+      </a>
+      <a  class="list-group-item">
+              <i class="fa fa-gears"></i>&nbsp;
+              <span>{{ 'Settings'}}</span>
+      </a>
+
+  </div>
+</nav>

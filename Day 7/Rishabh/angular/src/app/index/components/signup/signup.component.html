@@ -1,0 +1,69 @@
+<div class="login-page panel-body" align="right">
+    <div class="singInContainer" align="right">
+        <div align="center" style="margin-bottom: 20px;">
+            <img src="./assets/images/logo.png" width="200px" height="100px">
+        </div>
+        <form #RegisterForm="ngForm" (ngSubmit)="onClick()">
+            <div class="form-group" align="center" [hidden]="!errorAction" >
+              <div id="message" class="errorMessageDiv" align="center" style="margin-bottom:8px;">{{errorMessage}}</div>
+            </div>
+            <div class="form-group" align="center" [hidden]="!successAction">
+                <div id="message" class="successMessageDiv" align="center" style="margin-bottom:8px;">{{successMessage}}</div>
+            </div>
+            <div class="form-group" align="center">
+                <input type="text" class="inputField form-control" name="firstName" [(ngModel)]="firstName" id="firstName" #firstNameValid="ngModel" pattern="[A-z\s]{1,}" [ngModelOptions]="{updateOn: 'change'}" placeholder="{{ 'First Name'}}" required>
+                <div id="message" class="errorMessageDiv" [hidden]="firstNameValid.valid || firstNameValid.pristine">Invalid First Name</div>
+            </div>
+            <div class="form-group" align="center">
+                <input type="text" class="inputField form-control" name="lastName" [(ngModel)]="lastName" id="lastName" #lastNameValid="ngModel" pattern="[A-z\s]{1,}" [ngModelOptions]="{updateOn: 'change'}" placeholder="{{ 'Last Name'}}" required>
+                <div id="message" class="errorMessageDiv" [hidden]="lastNameValid.valid || lastNameValid.pristine">Invalid Last Name</div>
+            </div>
+            <div class="form-group" align="center">
+                <input type="text" class="inputField form-control" name="emailID" [(ngModel)]="emailID" id="emailID" #emailIDValid="ngModel" pattern="^[A-z0-9._%+-]+@[A-z0-9.-]+\.[A-z]{2,6}$" [ngModelOptions]="{updateOn: 'change'}" (input)="checkEmail($event)" placeholder="{{'Email Address'}}" required>
+                <div id="message" class="errorMessageDiv" [hidden]="emailIDValid.valid || emailIDValid.pristine">Invalid Email Address</div>
+            </div>
+            <div class="form-group" align="center">
+                <input type="password" class="inputField form-control" name="password" [(ngModel)]="password" id="password" #passwordValid="ngModel" pattern="[A-z][A-z0-9-_.]{7,}" [ngModelOptions]="{updateOn: 'change'}" placeholder="{{'Password'}}" required>
+                <div id="message" class="errorMessageDiv" [hidden]="passwordValid.valid || passwordValid.pristine">Invalid Password</div>
+            </div>
+            <div class="form-group" align="center">
+                <input type="password" class="inputField form-control" name="confirmPassword" [(ngModel)]="confirmPassword" id="confirmPassword" #confirmPasswordValid="ngModel" pattern="[A-z][A-z0-9-_.]{7,}" [ngModelOptions]="{updateOn: 'change'}" placeholder="{{'Confirm Password'}}"
+                    required>
+                <div id="message" class="errorMessageDiv" [hidden]="confirmPasswordValid.valid || confirmPasswordValid.pristine">Invalid Password</div>
+            </div>
+            <div class="form-group" align="center">
+                <input type="date" class="inputField form-control" name="dateOfBirth" [(ngModel)]="dateOfBirth" id="dateOfBirth" #dateOfBirthValid="ngModel" [ngModelOptions]="{updateOn: 'change'}" placeholder="{{'Date Of Birth'}}" required>
+                <div id="message" class="errorMessageDiv" [hidden]="dateOfBirthValid.valid || dateOfBirthValid.pristine">Invalid Date of Birth</div>
+            </div>
+            <div class="form-group" align="center">
+                <input type="number" class="inputField form-control" name="age" [(ngModel)]="age" id="age" #ageValid="ngModel" pattern="[1-9][0-9]{1,2}" min="18" [ngModelOptions]="{updateOn: 'change'}" placeholder="{{'Age'}}" required>
+                <div id="message" class="errorMessageDiv" [hidden]="ageValid.valid || ageValid.pristine">Invalid Age</div>
+            </div>
+            <div class="form-group" align="center">
+                <input type="number" class="inputField form-control" name="mobileNo" [(ngModel)]="mobileNo" id="mobileNo" #mobileNoValid="ngModel" pattern="[1-9][0-9]{9}" [ngModelOptions]="{updateOn: 'change'}" placeholder="{{'Phone Number'}}" required>
+                <div id="message" class="errorMessageDiv" [hidden]="mobileNoValid.valid || mobileNoValid.pristine">Invalid Mobile Number</div>
+            </div>
+            <div class="form-group" align="center">
+                <mat-radio-group align="center" class="example-radio-group inputField" name="gender" [(ngModel)]="_gender">
+                    <mat-radio-button align="center" class="example-radio-button" *ngFor="let gender of genderList" [value]="gender">{{ gender }}</mat-radio-button>
+                </mat-radio-group>
+            </div>
+            <div class="form-group" align="center">
+                <input type="text" class="inputField form-control" name="firstSecurityAnswer" [(ngModel)]="firstSecurityAnswer" id="firstSecurityAnswer" #firstSecurityAnswerValid="ngModel" pattern="[A-z\s._-]+" [ngModelOptions]="{updateOn: 'change'}" placeholder="{{'What is your first pet name?'}}"
+                    required>
+                <div id="message" class="errorMessageDiv" [hidden]="firstSecurityAnswerValid.valid || firstSecurityAnswerValid.pristine">Invalid Security Answer</div>
+            </div>
+            <div class="form-group" align="center">
+                <input type="text" class="inputField form-control" name="secondSecurityAnswer" [(ngModel)]="secondSecurityAnswer" id="secondSecurityAnswer" #secondSecurityAnswerValid="ngModel" pattern="[A-z\s._-]+" [ngModelOptions]="{updateOn: 'change'}" placeholder="{{'What is your favourite food?'}}"
+                    required>
+                <div id="message" class="errorMessageDiv" [hidden]="secondSecurityAnswerValid.valid || secondSecurityAnswerValid.pristine">Invalid Security Answer</div>
+            </div>
+            <div class="form-group" align="center" [hidden]="successAction" >
+                <button class="btn btn-success" style="width:225px;" type="submit" value="Register" id="submitButton" [disabled]="!RegisterForm.form.valid">Register!</button>
+            </div>
+            <div class="form-group" align="center" [hidden]="!successAction" >
+                <a class="btn btn-link" [routerLink]="['/index/signin']" style="font-size: 20px;"><span class="glyphicon glyphicon-menu-left"></span>Back</a>
+            </div>
+        </form>
+    </div>
+</div>

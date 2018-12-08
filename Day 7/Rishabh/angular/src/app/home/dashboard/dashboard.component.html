@@ -1,0 +1,16 @@
+<!-- <div class="row header1" > -->
+  <app-header></app-header>
+  <!-- </div> -->
+
+  <app-sidebar (collapsedEvent)="receiveCollapsed($event)"></app-sidebar>
+  <!-- <div>
+    DashBoard here!!
+     <router-outlet></router-outlet>
+  </div> -->
+
+  <section class="main-container">
+      <img src="./assets/images/party.jpg">
+      <div class="div2">
+      <router-outlet></router-outlet>
+      </div>
+  </section>
